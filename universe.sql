@@ -160,7 +160,7 @@ CREATE TABLE public.planet (
     planet_id integer NOT NULL,
     name character varying(30) NOT NULL,
     has_life boolean,
-    is_spherical boolean,
+    planet_type_id integer NOT NULL,
     star_id integer NOT NULL
 );
 
@@ -190,13 +190,26 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 
 
 --
+-- Name: planet_types; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.planet_types (
+    planet_type_id integer NOT NULL,
+    name character varying(30) NOT NULL,
+    description text
+);
+
+
+ALTER TABLE public.planet_types OWNER TO freecodecamp;
+
+--
 -- Name: star; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
 CREATE TABLE public.star (
     star_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    distance_from_earth numeric(15,2),
+    size numeric(15,2),
     discovery_date date DEFAULT CURRENT_DATE NOT NULL,
     galaxy_id integer NOT NULL
 );
@@ -281,6 +294,12 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 
 --
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+
+
+--
+-- Data for Name: planet_types; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
 
@@ -391,6 +410,22 @@ ALTER TABLE ONLY public.planet
 
 
 --
+-- Name: planet_types planet_types_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet_types
+    ADD CONSTRAINT planet_types_name_key UNIQUE (name);
+
+
+--
+-- Name: planet_types planet_types_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet_types
+    ADD CONSTRAINT planet_types_pkey PRIMARY KEY (planet_type_id);
+
+
+--
 -- Name: star star_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
@@ -420,6 +455,14 @@ ALTER TABLE ONLY public.galaxy
 
 ALTER TABLE ONLY public.moon
     ADD CONSTRAINT moon_planet_id_fkey FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
+
+
+--
+-- Name: planet planet_planet_type_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_planet_type_id_fkey FOREIGN KEY (planet_type_id) REFERENCES public.planet_types(planet_type_id);
 
 
 --
