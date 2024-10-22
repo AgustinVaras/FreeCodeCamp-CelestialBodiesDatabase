@@ -333,6 +333,11 @@ INSERT INTO public.galaxy_types VALUES (3, 'Lenticular Galaxy', 'Lenticular gala
 -- Data for Name: planet_types; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.planet_types VALUES (1, 'Terrestrial', 'Terrestrial planets are planets that are made up of rocks and metals, and have a solid surface.');
+INSERT INTO public.planet_types VALUES (2, 'Ice Giant', 'A giant planet composed mainly of "ices"—volatile substances heavier than hydrogen and helium, such as water, methane, and ammonia—as opposed to "gas" (hydrogen and helium).');
+INSERT INTO public.planet_types VALUES (3, 'Gas Giant', 'A massive planet composed primarily of hydrogen and helium.');
+INSERT INTO public.planet_types VALUES (4, 'Proto planet', 'A large planetary embryo that originates within protoplanetary discs and has undergone internal melting to produce differentiated interiors. Protoplanets are believed to form out of kilometer-sized planetesimals that attract each other gravitationally and collide.');
+INSERT INTO public.planet_types VALUES (5, 'Ocean Planet', 'A theoretical planet which has a substantial fraction of its mass made of water.');
 
 
 --
@@ -373,7 +378,7 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, false);
 -- Name: planet_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.planet_type_id_seq', 1, false);
+SELECT pg_catalog.setval('public.planet_type_id_seq', 5, true);
 
 
 --
