@@ -122,7 +122,7 @@ ALTER SEQUENCE public.galaxy_types_galaxy_type_id_seq OWNED BY public.galaxy_typ
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    gravity numeric(4,4),
+    gravity numeric(6,3),
     is_round boolean,
     planet_id integer NOT NULL
 );
@@ -327,6 +327,25 @@ INSERT INTO public.galaxy_types VALUES (3, 'Lenticular Galaxy', 'Lenticular gala
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.moon VALUES (1, 'Earth', 1.622, true, 1);
+INSERT INTO public.moon VALUES (2, 'Io', 1.796, true, 9);
+INSERT INTO public.moon VALUES (3, 'Triton', 0.799, true, 12);
+INSERT INTO public.moon VALUES (4, 'Mishim', NULL, true, 3);
+INSERT INTO public.moon VALUES (5, 'Phoebe', 0.038, false, 2);
+INSERT INTO public.moon VALUES (6, 'Salas', NULL, true, 3);
+INSERT INTO public.moon VALUES (7, 'Europa', 3.314, true, 9);
+INSERT INTO public.moon VALUES (8, 'Phobos', 0.005, false, 6);
+INSERT INTO public.moon VALUES (9, 'Nomon', NULL, true, 3);
+INSERT INTO public.moon VALUES (10, 'Hyperion', 0.017, false, 2);
+INSERT INTO public.moon VALUES (11, 'Ganymede', 1.428, true, 9);
+INSERT INTO public.moon VALUES (12, 'Lycan', NULL, false, 11);
+INSERT INTO public.moon VALUES (13, 'Titan', 1.352, true, 2);
+INSERT INTO public.moon VALUES (14, 'Rrendos', NULL, true, 7);
+INSERT INTO public.moon VALUES (15, 'Deimos', 0.003, false, 6);
+INSERT INTO public.moon VALUES (16, 'Pandora', 0.002, false, 2);
+INSERT INTO public.moon VALUES (17, 'Prometheus', 0.001, false, 2);
+INSERT INTO public.moon VALUES (18, 'Sirius', NULL, false, 11);
+INSERT INTO public.moon VALUES (19, 'Callisto', 1.235, true, 9);
 
 
 --
@@ -388,7 +407,7 @@ SELECT pg_catalog.setval('public.galaxy_types_galaxy_type_id_seq', 3, true);
 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.moon_moon_id_seq', 1, false);
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 19, true);
 
 
 --
