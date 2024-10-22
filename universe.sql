@@ -350,6 +350,12 @@ INSERT INTO public.planet_types VALUES (5, 'Ocean Planet', 'A theoretical planet
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.star VALUES (1, 'Sun', 1392000.00, '1543-03-27', 1);
+INSERT INTO public.star VALUES (2, 'Alpha Centauri A', 851120.00, '1689-03-27', 1);
+INSERT INTO public.star VALUES (3, 'Adonalsium', 120000000.00, '2017-11-14', 4);
+INSERT INTO public.star VALUES (4, 'Beta Ray Bill', 3000000.00, '1983-11-01', 6);
+INSERT INTO public.star VALUES (5, 'Sylphrena B', 1188300000000.00, '2010-08-31', 4);
+INSERT INTO public.star VALUES (6, 'ROXs 42 B', 174777.00, '2013-10-17', 3);
 
 
 --
@@ -391,7 +397,7 @@ SELECT pg_catalog.setval('public.planet_type_id_seq', 5, true);
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
+SELECT pg_catalog.setval('public.star_star_id_seq', 6, true);
 
 
 --
