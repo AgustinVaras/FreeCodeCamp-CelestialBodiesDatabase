@@ -51,7 +51,7 @@ CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
     name character varying(30) NOT NULL,
     age_in_millions_of_years bigint,
-    size_in_light_years bigint,
+    size_in_light_years integer,
     galaxy_type_id integer NOT NULL
 );
 
@@ -230,7 +230,7 @@ ALTER SEQUENCE public.planet_type_id_seq OWNED BY public.planet_type.planet_type
 CREATE TABLE public.star (
     star_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    size numeric(15,2),
+    size integer,
     discovery_date date DEFAULT CURRENT_DATE NOT NULL,
     galaxy_id integer NOT NULL
 );
@@ -382,12 +382,12 @@ INSERT INTO public.planet_type VALUES (5, 'Ocean Planet', 'A theoretical planet 
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.star VALUES (1, 'Sun', 1392000.00, '1543-03-27', 1);
-INSERT INTO public.star VALUES (2, 'Alpha Centauri A', 851120.00, '1689-03-27', 1);
-INSERT INTO public.star VALUES (3, 'Adonalsium', 120000000.00, '2017-11-14', 4);
-INSERT INTO public.star VALUES (4, 'Beta Ray Bill', 3000000.00, '1983-11-01', 6);
-INSERT INTO public.star VALUES (5, 'Sylphrena B', 1188300000000.00, '2010-08-31', 4);
-INSERT INTO public.star VALUES (6, 'ROXs 42 B', 174777.00, '2013-10-17', 3);
+INSERT INTO public.star VALUES (1, 'Sun', 1392000, '1543-03-27', 1);
+INSERT INTO public.star VALUES (2, 'Alpha Centauri A', 851120, '1689-03-27', 1);
+INSERT INTO public.star VALUES (3, 'Adonalsium', 120000000, '2017-11-14', 4);
+INSERT INTO public.star VALUES (4, 'Beta Ray Bill', 3000000, '1983-11-01', 6);
+INSERT INTO public.star VALUES (6, 'ROXs 42 B', 174777, '2013-10-17', 3);
+INSERT INTO public.star VALUES (5, 'Sylphrena B', 1188300000, '2010-08-31', 4);
 
 
 --
