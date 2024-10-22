@@ -81,17 +81,17 @@ ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
 
 
 --
--- Name: galaxy_types; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: galaxy_type; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
-CREATE TABLE public.galaxy_types (
+CREATE TABLE public.galaxy_type (
     galaxy_type_id integer NOT NULL,
     name character varying(30) NOT NULL,
     description text NOT NULL
 );
 
 
-ALTER TABLE public.galaxy_types OWNER TO freecodecamp;
+ALTER TABLE public.galaxy_type OWNER TO freecodecamp;
 
 --
 -- Name: galaxy_types_galaxy_type_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
@@ -112,7 +112,7 @@ ALTER TABLE public.galaxy_types_galaxy_type_id_seq OWNER TO freecodecamp;
 -- Name: galaxy_types_galaxy_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.galaxy_types_galaxy_type_id_seq OWNED BY public.galaxy_types.galaxy_type_id;
+ALTER SEQUENCE public.galaxy_types_galaxy_type_id_seq OWNED BY public.galaxy_type.galaxy_type_id;
 
 
 --
@@ -190,17 +190,17 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 
 
 --
--- Name: planet_types; Type: TABLE; Schema: public; Owner: freecodecamp
+-- Name: planet_type; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
-CREATE TABLE public.planet_types (
+CREATE TABLE public.planet_type (
     planet_type_id integer NOT NULL,
     name character varying(30) NOT NULL,
     description text
 );
 
 
-ALTER TABLE public.planet_types OWNER TO freecodecamp;
+ALTER TABLE public.planet_type OWNER TO freecodecamp;
 
 --
 -- Name: planet_type_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
@@ -220,7 +220,7 @@ ALTER TABLE public.planet_type_id_seq OWNER TO freecodecamp;
 -- Name: planet_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.planet_type_id_seq OWNED BY public.planet_types.planet_type_id;
+ALTER SEQUENCE public.planet_type_id_seq OWNED BY public.planet_type.planet_type_id;
 
 
 --
@@ -268,10 +268,10 @@ ALTER TABLE ONLY public.galaxy ALTER COLUMN galaxy_id SET DEFAULT nextval('publi
 
 
 --
--- Name: galaxy_types galaxy_type_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: galaxy_type galaxy_type_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.galaxy_types ALTER COLUMN galaxy_type_id SET DEFAULT nextval('public.galaxy_types_galaxy_type_id_seq'::regclass);
+ALTER TABLE ONLY public.galaxy_type ALTER COLUMN galaxy_type_id SET DEFAULT nextval('public.galaxy_types_galaxy_type_id_seq'::regclass);
 
 
 --
@@ -289,10 +289,10 @@ ALTER TABLE ONLY public.planet ALTER COLUMN planet_id SET DEFAULT nextval('publi
 
 
 --
--- Name: planet_types planet_type_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+-- Name: planet_type planet_type_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.planet_types ALTER COLUMN planet_type_id SET DEFAULT nextval('public.planet_type_id_seq'::regclass);
+ALTER TABLE ONLY public.planet_type ALTER COLUMN planet_type_id SET DEFAULT nextval('public.planet_type_id_seq'::regclass);
 
 
 --
@@ -315,19 +315,18 @@ INSERT INTO public.galaxy VALUES (6, 'Centaurus A', 132700000000, 60000, 2);
 
 
 --
--- Data for Name: galaxy_types; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: galaxy_type; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.galaxy_types VALUES (1, 'Spiral Galaxy', 'These galaxies resemble giant rotating pinwheels with a pancake-like disk of stars and a central bulge or tight concetration of stars. The spiral arms can be wound tightly or loosely, and some cannot be seen from Earth because we view the galaxy from the side, edge on.');
-INSERT INTO public.galaxy_types VALUES (2, 'Elliptical Galaxy', 'Elliptical galaxies have shapes that range from completely round to oval. They are less common than spiral galaxies.');
-INSERT INTO public.galaxy_types VALUES (3, 'Lenticular Galaxy', 'Lenticular galaxies are a kind of cross between spirals and ellipticals. They have the central bulge and disk common to spiral galaxies but no arms. But like ellipticals, lenticular galaxies have older stellar populations and little ongoing star formation.');
+INSERT INTO public.galaxy_type VALUES (1, 'Spiral Galaxy', 'These galaxies resemble giant rotating pinwheels with a pancake-like disk of stars and a central bulge or tight concetration of stars. The spiral arms can be wound tightly or loosely, and some cannot be seen from Earth because we view the galaxy from the side, edge on.');
+INSERT INTO public.galaxy_type VALUES (2, 'Elliptical Galaxy', 'Elliptical galaxies have shapes that range from completely round to oval. They are less common than spiral galaxies.');
+INSERT INTO public.galaxy_type VALUES (3, 'Lenticular Galaxy', 'Lenticular galaxies are a kind of cross between spirals and ellipticals. They have the central bulge and disk common to spiral galaxies but no arms. But like ellipticals, lenticular galaxies have older stellar populations and little ongoing star formation.');
 
 
 --
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.moon VALUES (1, 'Earth', 1.622, true, 1);
 INSERT INTO public.moon VALUES (2, 'Io', 1.796, true, 9);
 INSERT INTO public.moon VALUES (3, 'Triton', 0.799, true, 12);
 INSERT INTO public.moon VALUES (4, 'Mishim', NULL, true, 3);
@@ -346,6 +345,8 @@ INSERT INTO public.moon VALUES (16, 'Pandora', 0.002, false, 2);
 INSERT INTO public.moon VALUES (17, 'Prometheus', 0.001, false, 2);
 INSERT INTO public.moon VALUES (18, 'Sirius', NULL, false, 11);
 INSERT INTO public.moon VALUES (19, 'Callisto', 1.235, true, 9);
+INSERT INTO public.moon VALUES (1, 'The Moon', 1.622, true, 1);
+INSERT INTO public.moon VALUES (20, 'Enceladus', 0.113, true, 2);
 
 
 --
@@ -367,14 +368,14 @@ INSERT INTO public.planet VALUES (12, 'Neptune', false, 2, 1);
 
 
 --
--- Data for Name: planet_types; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+-- Data for Name: planet_type; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.planet_types VALUES (1, 'Terrestrial', 'Terrestrial planets are planets that are made up of rocks and metals, and have a solid surface.');
-INSERT INTO public.planet_types VALUES (2, 'Ice Giant', 'A giant planet composed mainly of "ices"—volatile substances heavier than hydrogen and helium, such as water, methane, and ammonia—as opposed to "gas" (hydrogen and helium).');
-INSERT INTO public.planet_types VALUES (3, 'Gas Giant', 'A massive planet composed primarily of hydrogen and helium.');
-INSERT INTO public.planet_types VALUES (4, 'Proto planet', 'A large planetary embryo that originates within protoplanetary discs and has undergone internal melting to produce differentiated interiors. Protoplanets are believed to form out of kilometer-sized planetesimals that attract each other gravitationally and collide.');
-INSERT INTO public.planet_types VALUES (5, 'Ocean Planet', 'A theoretical planet which has a substantial fraction of its mass made of water.');
+INSERT INTO public.planet_type VALUES (1, 'Terrestrial', 'Terrestrial planets are planets that are made up of rocks and metals, and have a solid surface.');
+INSERT INTO public.planet_type VALUES (2, 'Ice Giant', 'A giant planet composed mainly of "ices"—volatile substances heavier than hydrogen and helium, such as water, methane, and ammonia—as opposed to "gas" (hydrogen and helium).');
+INSERT INTO public.planet_type VALUES (3, 'Gas Giant', 'A massive planet composed primarily of hydrogen and helium.');
+INSERT INTO public.planet_type VALUES (4, 'Proto planet', 'A large planetary embryo that originates within protoplanetary discs and has undergone internal melting to produce differentiated interiors. Protoplanets are believed to form out of kilometer-sized planetesimals that attract each other gravitationally and collide.');
+INSERT INTO public.planet_type VALUES (5, 'Ocean Planet', 'A theoretical planet which has a substantial fraction of its mass made of water.');
 
 
 --
@@ -407,7 +408,7 @@ SELECT pg_catalog.setval('public.galaxy_types_galaxy_type_id_seq', 3, true);
 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.moon_moon_id_seq', 19, true);
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 20, true);
 
 
 --
@@ -448,18 +449,18 @@ ALTER TABLE ONLY public.galaxy
 
 
 --
--- Name: galaxy_types galaxy_types_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: galaxy_type galaxy_types_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.galaxy_types
+ALTER TABLE ONLY public.galaxy_type
     ADD CONSTRAINT galaxy_types_name_key UNIQUE (name);
 
 
 --
--- Name: galaxy_types galaxy_types_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: galaxy_type galaxy_types_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.galaxy_types
+ALTER TABLE ONLY public.galaxy_type
     ADD CONSTRAINT galaxy_types_pkey PRIMARY KEY (galaxy_type_id);
 
 
@@ -496,18 +497,18 @@ ALTER TABLE ONLY public.planet
 
 
 --
--- Name: planet_types planet_types_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: planet_type planet_types_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.planet_types
+ALTER TABLE ONLY public.planet_type
     ADD CONSTRAINT planet_types_name_key UNIQUE (name);
 
 
 --
--- Name: planet_types planet_types_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: planet_type planet_types_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.planet_types
+ALTER TABLE ONLY public.planet_type
     ADD CONSTRAINT planet_types_pkey PRIMARY KEY (planet_type_id);
 
 
@@ -532,7 +533,7 @@ ALTER TABLE ONLY public.star
 --
 
 ALTER TABLE ONLY public.galaxy
-    ADD CONSTRAINT galaxy_galaxy_type_id_fkey FOREIGN KEY (galaxy_type_id) REFERENCES public.galaxy_types(galaxy_type_id);
+    ADD CONSTRAINT galaxy_galaxy_type_id_fkey FOREIGN KEY (galaxy_type_id) REFERENCES public.galaxy_type(galaxy_type_id);
 
 
 --
@@ -548,7 +549,7 @@ ALTER TABLE ONLY public.moon
 --
 
 ALTER TABLE ONLY public.planet
-    ADD CONSTRAINT planet_planet_type_id_fkey FOREIGN KEY (planet_type_id) REFERENCES public.planet_types(planet_type_id);
+    ADD CONSTRAINT planet_planet_type_id_fkey FOREIGN KEY (planet_type_id) REFERENCES public.planet_type(planet_type_id);
 
 
 --
