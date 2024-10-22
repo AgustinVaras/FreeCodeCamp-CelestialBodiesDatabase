@@ -284,6 +284,9 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: galaxy_types; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.galaxy_types VALUES (1, 'Spiral Galaxy', 'These galaxies resemble giant rotating pinwheels with a pancake-like disk of stars and a central bulge or tight concetration of stars. The spiral arms can be wound tightly or loosely, and some cannot be seen from Earth because we view the galaxy from the side, edge on.');
+INSERT INTO public.galaxy_types VALUES (2, 'Elliptical Galaxy', 'Elliptical galaxies have shapes that range from completely round to oval. They are less common than spiral galaxies.');
+INSERT INTO public.galaxy_types VALUES (3, 'Lenticular Galaxy', 'Lenticular galaxies are a kind of cross between spirals and ellipticals. They have the central bulge and disk common to spiral galaxies but no arms. But like ellipticals, lenticular galaxies have older stellar populations and little ongoing star formation.');
 
 
 --
@@ -321,7 +324,7 @@ SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, false);
 -- Name: galaxy_types_galaxy_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_types_galaxy_type_id_seq', 1, false);
+SELECT pg_catalog.setval('public.galaxy_types_galaxy_type_id_seq', 3, true);
 
 
 --
