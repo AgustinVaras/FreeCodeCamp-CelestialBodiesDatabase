@@ -333,6 +333,18 @@ INSERT INTO public.galaxy_types VALUES (3, 'Lenticular Galaxy', 'Lenticular gala
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.planet VALUES (1, 'Earth', true, 1, 1);
+INSERT INTO public.planet VALUES (2, 'Saturn', false, 3, 1);
+INSERT INTO public.planet VALUES (3, 'Roshar', true, 4, 5);
+INSERT INTO public.planet VALUES (4, 'ROXs 42 B', false, 3, 6);
+INSERT INTO public.planet VALUES (5, 'Scadrial', true, 1, 3);
+INSERT INTO public.planet VALUES (6, 'Mars', false, 1, 1);
+INSERT INTO public.planet VALUES (7, 'Nalthis', true, 1, 5);
+INSERT INTO public.planet VALUES (8, 'Miller', false, 5, 4);
+INSERT INTO public.planet VALUES (9, 'Jupiter', false, 3, 1);
+INSERT INTO public.planet VALUES (10, 'Sel', true, 2, 2);
+INSERT INTO public.planet VALUES (11, 'Lupin', false, 4, 5);
+INSERT INTO public.planet VALUES (12, 'Neptune', false, 2, 1);
 
 
 --
@@ -383,7 +395,7 @@ SELECT pg_catalog.setval('public.moon_moon_id_seq', 1, false);
 -- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, false);
+SELECT pg_catalog.setval('public.planet_planet_id_seq', 12, true);
 
 
 --
