@@ -50,7 +50,7 @@ SET default_table_access_method = heap;
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    age_in_millions_of_years integer,
+    age_in_millions_of_years bigint,
     size_in_light_years bigint,
     galaxy_type_id integer NOT NULL
 );
@@ -306,6 +306,12 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.galaxy VALUES (1, 'Milky Way', 13610000000000, 52850, 1);
+INSERT INTO public.galaxy VALUES (2, 'Cartwheel', 300000000, 144300, 3);
+INSERT INTO public.galaxy VALUES (3, 'Maffei 1', 10000000000, 75000, 2);
+INSERT INTO public.galaxy VALUES (4, 'Black Eye', 13280000000, 53800, 1);
+INSERT INTO public.galaxy VALUES (5, 'Andromeda', 10000, 110000, 1);
+INSERT INTO public.galaxy VALUES (6, 'Centaurus A', 132700000000, 60000, 2);
 
 
 --
@@ -350,7 +356,7 @@ INSERT INTO public.planet_types VALUES (5, 'Ocean Planet', 'A theoretical planet
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, false);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 
 
 --
