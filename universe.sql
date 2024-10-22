@@ -50,7 +50,7 @@ SET default_table_access_method = heap;
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    age_in_billions_of_years integer,
+    age_in_millions_of_years integer,
     size_in_light_years bigint,
     galaxy_type_id integer NOT NULL
 );
