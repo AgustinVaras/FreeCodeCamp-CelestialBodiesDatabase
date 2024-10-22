@@ -122,7 +122,7 @@ ALTER SEQUENCE public.galaxy_types_galaxy_type_id_seq OWNED BY public.galaxy_typ
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(30) NOT NULL,
-    age_in_million_of_years integer,
+    gravity numeric(4,4),
     is_round boolean,
     planet_id integer NOT NULL
 );
